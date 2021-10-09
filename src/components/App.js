@@ -1,9 +1,12 @@
 import React from 'react';
+import Button from '@mui/material/Button';
 
-const App = () => ( 
-   <div>
-      <h1>Hello React</h1>
-   </div>
-);
+export default function App(props) {
+   function sayHello(event) {
+      alert('React Material UI button clicked')
+   }
 
-export default App;
+   return (
+      <Button onClick={sayHello} variant="contained">Hello World</Button>
+   )
+}
