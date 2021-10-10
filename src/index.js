@@ -1,5 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import FormMUI from './components/FormMUI';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const iniStateForm = {
+   txtName: 'James Bond'
+};
+
+ReactDOM.render(<FormMUI iniState={iniStateForm} />, document.getElementById('root'));
