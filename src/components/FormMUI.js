@@ -29,16 +29,43 @@ export default class FormMUI extends React.Component {
 
    render() {
       return (
-         <FormControl>
-            <TextField
-               id='txtName'
-               label='Name'
-               variant='outlined'
-               size='small'
-               margin='dense'
-               value={this.state.txtName}
-               onChange={this.handleChange}
-            />
+         <FormControl component='form'>
+            <FormControl
+               component='fieldset'
+               style={{border: 'none', width: '360px', margin: '5px auto 15px'}}
+            >
+               <TextField
+                  id='txtName' label='Name' variant='outlined'
+                  size='small' fullWidth='true' margin='dense'
+                  value={this.state.txtName}
+                  onChange={this.handleChange}
+               />
+               <TextField
+                  id='txtAlias' label='Alias' variant='outlined'
+                  size='small' fullWidth='true' margin='dense'
+                  value={this.state.txtAlias} disabled
+               />
+               <TextField
+                  id='txtAdr' label='Address' variant='outlined'
+                  size='small' fullWidth='true' margin='dense'
+                  value={this.state.txtAdr}
+                  onChange={this.handleChange}
+                  inputProps={{ maxLength: 64 }}
+               />
+               <TextField
+                  id='txtCity' label='City' variant='outlined'
+                  size='small' fullWidth='true' margin='dense'
+                  value={this.state.txtCity}
+                  onChange={this.handleChange}
+               />
+               <TextField
+                  id='pwdCode' label='Secret code' variant='outlined'
+                  size='small' fullWidth='true' margin='dense'
+                  value={this.state.pwdCode}
+                  onChange={this.handleChange}
+                  type='password'
+               />
+            </FormControl>
             <ButtonGroup variant='contained' >
                <Button onClick={this.handleSubmit}>
                   Submit
