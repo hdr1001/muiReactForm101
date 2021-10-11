@@ -8,6 +8,7 @@ const iniStateForm = {
    txtAdr: '',
    txtCity: '',
    pwdCode: '',
+   optGender: 'M'
 };
 
 ReactDOM.render(<FormMUI iniState={iniStateForm} />, document.getElementById('root'));

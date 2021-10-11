@@ -1,6 +1,10 @@
 import React from 'react';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
+import FormLabel from '@mui/material/FormLabel';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Radio from '@mui/material/Radio';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
 
@@ -36,35 +40,50 @@ export default class FormMUI extends React.Component {
             >
                <TextField
                   id='txtName' label='Name' variant='outlined'
-                  size='small' fullWidth='true' margin='dense'
+                  size='small' fullWidth={true} margin='dense'
                   value={this.state.txtName}
                   onChange={this.handleChange}
                />
                <TextField
                   id='txtAlias' label='Alias' variant='outlined'
-                  size='small' fullWidth='true' margin='dense'
+                  size='small' fullWidth={true} margin='dense'
                   value={this.state.txtAlias} disabled
                />
                <TextField
                   id='txtAdr' label='Address' variant='outlined'
-                  size='small' fullWidth='true' margin='dense'
+                  size='small' fullWidth={true} margin='dense'
                   value={this.state.txtAdr}
                   onChange={this.handleChange}
                   inputProps={{ maxLength: 64 }}
                />
                <TextField
                   id='txtCity' label='City' variant='outlined'
-                  size='small' fullWidth='true' margin='dense'
+                  size='small' fullWidth={true} margin='dense'
                   value={this.state.txtCity}
                   onChange={this.handleChange}
                />
                <TextField
                   id='pwdCode' label='Secret code' variant='outlined'
-                  size='small' fullWidth='true' margin='dense'
+                  size='small' fullWidth={true} margin='dense'
                   value={this.state.pwdCode}
                   onChange={this.handleChange}
                   type='password'
                />
+            </FormControl>
+            <FormControl
+               component='fieldset'
+               style={{border: 'none', width: '360px', margin: '5px auto 15px'}}
+            >
+               <FormLabel component='legend'>Gender</FormLabel>
+               <RadioGroup
+                  aria-label='gender'
+                  defaultValue={this.state.optGender}
+                  name='optGender'
+                  onChange={this.handleChange}
+               >
+                  <FormControlLabel value='F' control={<Radio />} label='Female' />
+                  <FormControlLabel value='M' control={<Radio />} label='Male' />
+               </RadioGroup>
             </FormControl>
             <ButtonGroup variant='contained' >
                <Button onClick={this.handleSubmit}>
