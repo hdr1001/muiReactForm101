@@ -28,12 +28,17 @@ export default class FormMUI extends React.Component {
    }
 
    handleChange(event) {
-      this.setState(() => ({ [event.target.id]: event.target.value }));
+      if (event.target.type === 'radio') {
+         this.setState(() => ({ [event.target.name]: event.target.value }))
+      }
+      else {
+         this.setState(() => ({ [event.target.id]: event.target.value }));
+      }
    }
 
    render() {
       return (
-         <FormControl component='form'>
+         <FormControl component='form' style={{margin: '20px 15px'}}>
             <FormControl
                component='fieldset'
                style={{border: 'none', width: '360px', margin: '5px auto 15px'}}
@@ -77,12 +82,13 @@ export default class FormMUI extends React.Component {
                <FormLabel component='legend'>Gender</FormLabel>
                <RadioGroup
                   aria-label='gender'
-                  defaultValue={this.state.optGender}
-                  name='optGender'
+                  id='optGender'
+                  value={this.state.optGender}
                   onChange={this.handleChange}
+                  row
                >
-                  <FormControlLabel value='F' control={<Radio />} label='Female' />
-                  <FormControlLabel value='M' control={<Radio />} label='Male' />
+                  <FormControlLabel value='F' name='optGender' control={<Radio />} label='Female' />
+                  <FormControlLabel value='M' name='optGender' control={<Radio />} label='Male' />
                </RadioGroup>
             </FormControl>
             <ButtonGroup variant='contained' >
