@@ -8,6 +8,9 @@ import Radio from '@mui/material/Radio';
 import FormGroup from '@mui/material/FormGroup';
 import Checkbox from '@mui/material/Checkbox';
 import Tooltip from '@mui/material/Tooltip';
+import InputLabel from '@mui/material/InputLabel';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
 
@@ -31,7 +34,7 @@ export default class FormMUI extends React.Component {
    }
 
    handleChange(event) {
-      if(event.target.type === 'radio') {
+      if(!event.target.type || event.target.type === 'radio') {
          this.setState(() => ({ [event.target.name]: event.target.value }))
       }
       else if(event.target.type === 'checkbox') {
@@ -148,6 +151,25 @@ export default class FormMUI extends React.Component {
                />
                </Tooltip>
                </FormGroup>
+            </FormControl>
+
+            <FormControl
+               component='fieldset'
+               style={{border: 'none', width: '360px', margin: '5px auto 15px'}}
+            >
+               <InputLabel id='labelMenu'>Menu options</InputLabel>
+               <Select
+                  labelId='labelMenu'
+                  name='selectMenuOpts'
+                  label='Menu options'
+                  value={this.state.selectMenuOpts}
+                  onChange={this.handleChange}
+               >
+                  <MenuItem value='a'>A la cart</MenuItem>
+                  <MenuItem value='s'>Special</MenuItem>
+                  <MenuItem value='c'>Catch of the day</MenuItem>
+                  <MenuItem value='v'>Vegetarian</MenuItem>
+               </Select>
             </FormControl>
 
             <ButtonGroup
