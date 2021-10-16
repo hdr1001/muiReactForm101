@@ -34,14 +34,11 @@ export default class FormMUI extends React.Component {
    }
 
    handleChange(event) {
-      if(!event.target.type || event.target.type === 'radio') {
-         this.setState(() => ({ [event.target.name]: event.target.value }))
-      }
-      else if(event.target.type === 'checkbox') {
-         this.setState(() => ({ [event.target.id]: event.target.checked }))
+      if(event.target.type === 'checkbox') {
+         this.setState(() => ({ [event.target.name]: event.target.checked }))
       }
       else {
-         this.setState(() => ({ [event.target.id]: event.target.value }));
+         this.setState(() => ({ [event.target.name]: event.target.value }))
       }
    }
 
@@ -49,6 +46,7 @@ export default class FormMUI extends React.Component {
       return (
          <FormControl
             component='form'
+            sx={{ border: 2, borderColor: 'primary.main', borderRadius: 3 }}
             style={{margin: '20px', padding: '15px'}}
          >
 
@@ -57,31 +55,31 @@ export default class FormMUI extends React.Component {
                style={{border: 'none', width: '360px', margin: '5px auto 15px'}}
             >
                <TextField
-                  id='txtName' label='Name' 
+                  name='txtName' label='Name' 
                   size='small' margin='dense' fullWidth
                   value={this.state.txtName}
                   onChange={this.handleChange}
                />
                <TextField
-                  id='txtAlias' label='Alias'
+                  name='txtAlias' label='Alias'
                   size='small' margin='dense' fullWidth
                   value={this.state.txtAlias} disabled
                />
                <TextField
-                  id='txtAdr' label='Address'
+                  name='txtAdr' label='Address'
                   size='small' margin='dense' fullWidth
                   value={this.state.txtAdr}
                   onChange={this.handleChange}
                   inputProps={{ maxLength: 64 }}
                />
                <TextField
-                  id='txtCity' label='City'
+                  name='txtCity' label='City'
                   size='small' margin='dense' fullWidth
                   value={this.state.txtCity}
                   onChange={this.handleChange}
                />
                <TextField
-                  id='pwdCode' label='Secret code'
+                  name='pwdCode' label='Secret code'
                   size='small'margin='dense' fullWidth
                   value={this.state.pwdCode}
                   onChange={this.handleChange}
@@ -116,7 +114,7 @@ export default class FormMUI extends React.Component {
                   label='Water'
                   control={
                      <Checkbox
-                        id='chkWater'
+                        name='chkWater'
                         checked={this.state.chkWater}
                         onChange={this.handleChange}
                         inputProps={{ 'aria-label': 'controlled' }}
@@ -127,7 +125,7 @@ export default class FormMUI extends React.Component {
                   label='Ice'
                   control={
                      <Checkbox
-                        id='chkIce'
+                        name='chkIce'
                         checked={this.state.chkIce}
                         onChange={this.handleChange}
                         inputProps={{ 'aria-label': 'controlled' }}
@@ -142,7 +140,7 @@ export default class FormMUI extends React.Component {
                      label='Shaken'
                      control={
                         <Checkbox
-                           id='chkShaken'
+                           name='chkShaken'
                            checked={this.state.chkShaken}
                            onChange={this.handleChange}
                            inputProps={{ 'aria-label': 'controlled' }}
@@ -162,6 +160,7 @@ export default class FormMUI extends React.Component {
                   labelId='labelMenu'
                   name='selectMenuOpts'
                   label='Menu options'
+                  margin='dense'
                   value={this.state.selectMenuOpts}
                   onChange={this.handleChange}
                >
