@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './components/theme';
 import FormMUI from './components/FormMUI';
 
 const iniStateForm = {
@@ -9,7 +11,7 @@ const iniStateForm = {
    txtAdr: '',
    txtCity: '',
    pwdCode: '',
-   optGender: 'F',
+   optGender: 'M',
    chkWater: false,
    chkIce: false,
    chkShaken: true,
@@ -19,7 +21,9 @@ const iniStateForm = {
 ReactDOM.render(
    <>
       <CssBaseline />
-      <FormMUI iniState={iniStateForm} />
+      <ThemeProvider theme={theme}>
+         <FormMUI iniState={iniStateForm} />
+      </ThemeProvider>
    </>,
 
    document.getElementById('root')

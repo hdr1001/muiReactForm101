@@ -1,18 +1,11 @@
 import React from 'react';
 import FormControl from '@mui/material/FormControl';
-import TextField from '@mui/material/TextField';
-import FormLabel from '@mui/material/FormLabel';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Radio from '@mui/material/Radio';
-import FormGroup from '@mui/material/FormGroup';
-import Checkbox from '@mui/material/Checkbox';
-import Tooltip from '@mui/material/Tooltip';
-import InputLabel from '@mui/material/InputLabel';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
+import TextFields from './TextFields';
+import RadioBtns from './RadioBtns';
+import CheckBoxes from './CheckBoxes';
+import SelectMenu from './SelectMenu';
 
 export default class FormMUI extends React.Component {
    constructor(props) {
@@ -46,130 +39,17 @@ export default class FormMUI extends React.Component {
       return (
          <FormControl
             component='form'
-            sx={{ border: 2, borderColor: 'primary.main', borderRadius: 3 }}
+            sx={{ border: 1, borderColor: 'primary.main', borderRadius: 3 }}
             style={{margin: '20px', padding: '15px'}}
          >
 
-            <FormControl
-               component='fieldset'
-               style={{border: 'none', width: '360px', margin: '5px auto 15px'}}
-            >
-               <TextField
-                  name='txtName' label='Name' 
-                  size='small' margin='dense' fullWidth
-                  value={this.state.txtName}
-                  onChange={this.handleChange}
-               />
-               <TextField
-                  name='txtAlias' label='Alias'
-                  size='small' margin='dense' fullWidth
-                  value={this.state.txtAlias} disabled
-               />
-               <TextField
-                  name='txtAdr' label='Address'
-                  size='small' margin='dense' fullWidth
-                  value={this.state.txtAdr}
-                  onChange={this.handleChange}
-                  inputProps={{ maxLength: 64 }}
-               />
-               <TextField
-                  name='txtCity' label='City'
-                  size='small' margin='dense' fullWidth
-                  value={this.state.txtCity}
-                  onChange={this.handleChange}
-               />
-               <TextField
-                  name='pwdCode' label='Secret code'
-                  size='small'margin='dense' fullWidth
-                  value={this.state.pwdCode}
-                  onChange={this.handleChange}
-                  type='password'
-               />
-            </FormControl>
+            <TextFields state={this.state} handleChange={this.handleChange} />
 
-            <FormControl
-               component='fieldset'
-               style={{border: 'none', width: '360px', margin: '5px auto 15px'}}
-            >
-               <FormLabel component='legend'>Gender</FormLabel>
-               <RadioGroup
-                  aria-label='gender'
-                  id='optGender'
-                  value={this.state.optGender}
-                  onChange={this.handleChange}
-                  row
-               >
-                  <FormControlLabel value='F' name='optGender' control={<Radio />} label='Female' />
-                  <FormControlLabel value='M' name='optGender' control={<Radio />} label='Male' />
-               </RadioGroup>
-            </FormControl>
+            <RadioBtns state={this.state} handleChange={this.handleChange} />
 
-            <FormControl
-               component='fieldset'
-               style={{border: 'none', width: '360px', margin: '5px auto 15px'}}
-            >
-               <FormLabel component='legend'>Options</FormLabel>
-               <FormGroup row>
-               <FormControlLabel 
-                  label='Water'
-                  control={
-                     <Checkbox
-                        name='chkWater'
-                        checked={this.state.chkWater}
-                        onChange={this.handleChange}
-                        inputProps={{ 'aria-label': 'controlled' }}
-                     />
-                  }
-               />
-               <FormControlLabel 
-                  label='Ice'
-                  control={
-                     <Checkbox
-                        name='chkIce'
-                        checked={this.state.chkIce}
-                        onChange={this.handleChange}
-                        inputProps={{ 'aria-label': 'controlled' }}
-                     />
-                  }
-               />
-               <Tooltip
-                  title='Stirred if not checked'
-                  placement='right-start'
-               >
-                  <FormControlLabel 
-                     label='Shaken'
-                     control={
-                        <Checkbox
-                           name='chkShaken'
-                           checked={this.state.chkShaken}
-                           onChange={this.handleChange}
-                           inputProps={{ 'aria-label': 'controlled' }}
-                        />
-                  }
-               />
-               </Tooltip>
-               </FormGroup>
-            </FormControl>
+            <CheckBoxes state={this.state} handleChange={this.handleChange} />
 
-            <FormControl
-               component='fieldset'
-               style={{border: 'none', width: '360px', margin: '5px auto 15px'}}
-            >
-               <InputLabel id='labelMenu'>Menu options</InputLabel>
-               <Select
-                  labelId='labelMenu'
-                  name='selectMenuOpts'
-                  label='Menu options'
-                  margin='dense'
-                  value={this.state.selectMenuOpts}
-                  onChange={this.handleChange}
-               >
-                  <MenuItem value='a'>A la cart</MenuItem>
-                  <MenuItem value='s'>Special</MenuItem>
-                  <MenuItem value='c'>Catch of the day</MenuItem>
-                  <MenuItem value='v'>Vegetarian</MenuItem>
-               </Select>
-            </FormControl>
+            <SelectMenu state={this.state} handleChange={this.handleChange} />
 
             <ButtonGroup
                variant='contained'
