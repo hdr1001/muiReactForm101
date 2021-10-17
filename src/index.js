@@ -15,7 +15,8 @@ const iniStateForm = {
    chkWater: false,
    chkIce: false,
    chkShaken: true,
-   selectMenuOpts: 's'
+   selectMenuOpts: 's',
+   hdnInp: '🤯' //No longer associated with a control
 };
 
 ReactDOM.render(
