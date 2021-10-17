@@ -4,12 +4,13 @@ import FormLabel from '@mui/material/FormLabel';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Radio from '@mui/material/Radio';
+import { customStyle } from './style';
 
 export default function RadioBtns(props) {
    return (
       <FormControl
          component='fieldset'
-         style={{border: 'none', width: '360px', margin: '5px auto 15px'}}
+         sx={customStyle}
       >
          <FormLabel component='legend'>Gender</FormLabel>
          <RadioGroup

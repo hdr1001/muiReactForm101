@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material/styles';
-import { blueGrey, teal } from '@mui/material/colors';
+import { blueGrey, blue } from '@mui/material/colors';
 
 const theme = createTheme({
    palette: {
@@ -7,7 +7,7 @@ const theme = createTheme({
        main: blueGrey[500],
      },
      secondary: {
-       main: teal[500],
+       main: blue[600],
      }
    }
  });

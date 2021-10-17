@@ -3,12 +3,13 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+import { customStyle } from './style';
 
 export default function SelectMenu(props) {
    return (
       <FormControl
          component='fieldset'
-         style={{border: 'none', width: '360px', margin: '5px auto 15px'}}
+         sx={customStyle}
       >
          <InputLabel id='labelMenu'>Menu options</InputLabel>
          <Select

@@ -1,12 +1,13 @@
 import React from 'react';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
+import { customStyle } from './style';
 
 export default function TextFields(props) {
    return (
       <FormControl
          component='fieldset'
-         style={{border: 'none', width: '360px', margin: '5px auto 15px'}}
+         sx={customStyle}
       >
          <TextField
             name='txtName' label='Name' 

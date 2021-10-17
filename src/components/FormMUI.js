@@ -1,11 +1,10 @@
 import React from 'react';
 import FormControl from '@mui/material/FormControl';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import Button from '@mui/material/Button';
 import TextFields from './TextFields';
 import RadioBtns from './RadioBtns';
 import CheckBoxes from './CheckBoxes';
 import SelectMenu from './SelectMenu';
+import Buttons from './Buttons';
 
 export default class FormMUI extends React.Component {
    constructor(props) {
@@ -39,8 +38,15 @@ export default class FormMUI extends React.Component {
       return (
          <FormControl
             component='form'
-            sx={{ border: 1, borderColor: 'primary.main', borderRadius: 3 }}
-            style={{margin: '20px', padding: '15px'}}
+            sx={{
+               width: '400px',
+               m: 2.5,
+               px: 2,
+               py: 1.5,
+               border: 1,
+               borderColor: 'primary.light',
+               borderRadius: 3
+            }}
          >
 
             <TextFields state={this.state} handleChange={this.handleChange} />
@@ -51,18 +57,8 @@ export default class FormMUI extends React.Component {
 
             <SelectMenu state={this.state} handleChange={this.handleChange} />
 
-            <ButtonGroup
-               variant='contained'
-               disableElevation
-               style={{border: 'none', width: '360px', margin: '5px auto 15px'}}
-            >
-               <Button onClick={this.handleSubmit}>
-                  Submit
-               </Button>
-               <Button onClick={this.handleReset}>
-                  Reset
-               </Button>
-            </ButtonGroup>
+            <Buttons handleSubmit={this.handleSubmit} handleReset={this.handleReset} />
+
          </FormControl>
       )
    }
